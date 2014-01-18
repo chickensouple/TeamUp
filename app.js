@@ -10,7 +10,7 @@ var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/nodetest1');
+var db = monk('localhost:27017/teamUp');
 
 var app = express();
 
@@ -40,31 +40,39 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+
 app.get('/', routes.index);
 app.get('/users', user.list);
+
 app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage);
 app.get('/controlpage', routes.controlpage);
 app.get('/userpage_people', routes.userpage_people);
 
-app.use(function(req, res, next){
-  var err = req.session.error
-    , msg = req.session.success;
-  delete req.session.error;
-  delete req.session.success;
-  res.locals.message = '';
-  if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
-  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
-  next();
-});
-
-var users = {
-  clark: { name: 'clark' }
-};
+var collection = db.get('usercollection');
 
 app.post('/', function(req, res){
 	console.log(req.body.username);
 	console.log(req.body.userpass);
+
+	var userName = req.body.username;
+	var userPass = req.body.userpass;
+
+	collection.insert({
+		'username' : userName,
+		'password' : userPass
+	}, function (err, doc) {
+		if (err) {
+			// If it failed, return error
+			res.send('There was a problem adding the information to the database.');
+		}
+		else {
+			// If it worked, set the header so the address bar doesn't still say /adduser
+			res.location('userpage');
+			// And forward to success page
+			res.redirect('userpage');
+		}
+	});
 });
 
 http.createServer(app).listen(app.get('port'), function(){
