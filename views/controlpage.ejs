@@ -1,46 +1,128 @@
-<link rel='stylesheet' href='/stylesheets/controlpage.css' />
 
-<body>
-	<div id="headerBar"> 
-		<div class ="headerBar">
-			Team Up! 
-		</div>
-	</div> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>team up!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">    
+    <link rel="stylesheet" href="/stylesheets/common.css">
+    <link rel="stylesheet" href="/stylesheets/controlpage.css">
 
-	<div id="sendTask">
-		<div class="sendTask">
-		Send out a task. 
 
-		</div> 
-		<div class="sendTask">
-		Name field
-		</div> 
-		<div class="sendTask">
-		Task field
-		</div> 
-		<div class="sendTask">
-		details field
-		</div> 
-	</div> 
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
+    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
+          rel="stylesheet" type="text/css">
 
-	
+  </head>
+  <body>
 
-	<div id=" "
-	<div id="taskContainer">
-		<div class="taskContent">
-			task name
-		</div>
-		<div class="taskContent">
-			location
-		</div>
-		<div class="taskContent">
-			time
-		</div>
-		<div class="taskContent">
-			details
-		</div>
-	</div>
+  <!-- Mobile-friendly navbar adapted from example. -->
+    <!-- http://twitter.github.io/bootstrap/examples/starter-template.html -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar"
+                  data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">TeamUp!</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Managers</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-	blah </div> </div>
-	<button type="button" name="" value="" class="orangeButton">Send</button>
-</body>
+<div class="container">
+      <div class="row-fluid heading">
+        <div class="span12">
+          <h1 style="color:#6ec5b8">Assign Tasks</h1>
+        </div>
+      </div> 
+</div> 
+
+
+<div class="container">
+      <form class="form-horizontal">
+  		<div class="control-group">
+    		<label class="control-label" for="inputEmail">Name</label>
+    		<div class="controls">
+      			<input type="text" id="inputEmail" placeholder="Name">
+  	  		</div>
+  		</div>
+  		<div class="control-group">
+   	 		<label class="control-label" for="inputPassword">Location of Task</label>
+    		<div class="controls">
+      			<input type="text" id="inputLocation" placeholder="Location">
+    		</div>
+  		</div>
+		<div class="control-group">
+   	 		<label class="control-label" for="inputPassword">Finish Time</label>
+    		<div class="controls">
+      			<input type="text" id="inputLocation" placeholder="Location">
+    		</div>
+  		</div>
+  		<div class="control-group">
+   	 		<label class="control-label" for="inputPassword">Task</label>
+    		<div class="controls">
+      			<input class="input-xxlarge" type="text" id="inputTask" placeholder="Task">
+      			
+    		</div>
+  		</div>
+
+  		<div class="control-group">
+   	 		<label class="control-label" for="inputPassword">Details</label>
+    		<div class="controls">
+      			<input class="input-xxlarge" type="text" id="inputTask" placeholder="Details">
+      			
+    		</div>
+  		</div>
+  		
+
+
+  		<div class="control-group">
+    		<div class="controls">
+      			<label class="checkbox">
+        	<input type="checkbox"> Notify Everyone 
+      	</label>
+      		<button type="submit" class="btn">Blastoff!</button>
+    	</div>
+  		</div>
+		</form>
+</div>
+
+<div class="container">
+      <p class="h1">
+          <h1 style="color:#6ec5b8">Track Teammates</h1>
+      </p> 
+</div> 
+<div class="container">
+		<table class ="table table-bordered" class ="table table-hover" align="center" width="75%">
+			<thead>
+				<td width="20%">
+					<strong>Name</strong>
+				</td width="20%">
+				<td>
+					<strong>Location</strong>
+				</td>
+				<td width="50%">
+					<strong>Task</strong>
+				</td>
+				<td width="10%">
+					<strong>Finish Time</strong>
+				</td>
+			</thead>	
+		</table>		
+</div>
+
