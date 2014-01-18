@@ -28,12 +28,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">TeamUp</a>
+          <a class="brand" href="#">TeamUp!</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active"><a href="/">home</a></li>
+              <li><a href="/userpage">people</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -66,43 +65,51 @@
         </div>
       </div>
 
-      <!-- For the FAQ, we introduce a little bit of JS, using the accordion. -->
-      <!-- This brings in jquery.js and bootstrap.js as dependencies. -->
-      <!-- http://twitter.github.io/bootstrap/javascript.html#collapse -->
-      <div class="row-fluid faq">
-          <div class="span10 offset1">
-            <h3>FAQ</h3>
-            <div class="accordion" id="accordion2">
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseOne">
-                    What does FAQ stand for?
-                  </a>
-                </div>
-                <div id="collapseOne" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    Frequently Asked Question.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-group">
-                <div class="accordion-heading">
-                  <a class="accordion-toggle" data-toggle="collapse"
-                     data-parent="#accordion2" href="#collapseTwo">
-                    What's a Frequently Asked Question?
-                  </a>
-                </div>
-                <div id="collapseTwo" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    A question which is commonly asked by users.
-                  </div>
-                </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <form class="form-horizontal boxcontainer">
+            <div class="control-group  padtop">
+              <label class="control-label" for="inputName">Name</label>
+              <div class="controls">
+                <input type="text" id="inputName" placeholder="Name">
               </div>
             </div>
-          </div>
-
+            <div class="control-group ">
+              <label class="control-label" for="inputPassword">Password</label>
+              <div class="controls">
+                <input type="password" id="inputPassword" placeholder="Password">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <button type="submit" class="btn">Sign In</button>
+                <button type="register" class="btn">Register</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+        <div class="span6">
+          <form class="form-horizontal boxcontainer offset1">
+            <div class="control-group  padtop">
+              <label class="control-label" for="teamName">Name</label>
+              <div class="controls">
+                <input type="text" id="teamName" placeholder="Team Name">
+              </div>
+            </div>
+            <div class="control-group ">
+              <div class="controls">
+                <button type="register_team" class="btn">Register Team</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
+
+      
+
+      
+
 
       <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->

@@ -17,27 +17,7 @@ exports.helloworld = function(req, res){
 /*
  * GET DB Output page
  */
-exports.userlist = function(db) {
-	return function(req, res) {
-		var collection = db.get('usercollection');
-		collection.find({},{},function(e,docs){
-			res.render('userlist', {
-				'userlist' : docs
-			});
-		});
-	};
-};
 
-/*
- * GET DB Input page
- */
-exports.newuser = function(req, res){
-	res.render('newuser', { title: 'Add New User' });
-};
-
-/*
- * POST form
- */
 exports.adduser = function(db) {
 	return function(req, res) {
 
