@@ -17,7 +17,8 @@ body {
 #logo {
 	float: left;
 	position: relative;
-	left: 10px	;
+	top: 3px;
+	left: 10px;
 	height: 90%;
 }
 
