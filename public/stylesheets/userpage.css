@@ -1,9 +1,6 @@
 .span5 p {
-  border: 1px solid #FF9000;
+  border: 1px solid #6EC5B8;
   border-radius: 25px;
   text-align: center;
-}
-
-.navbar-fixed-top {
-	background-color: #6EC5B8;
+  color: black;
 }
