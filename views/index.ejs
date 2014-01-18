@@ -31,8 +31,9 @@
           <a class="brand" href="#">TeamUp!</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">home</a></li>
-              <li><a href="/userpage">people</a></li>
+              <li class="active"><a>Home</a></li>
+              <li><a href="/userpage">Info</a></li>
+              <li><a href="/userpage_people">People</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -67,34 +68,34 @@
 
       <div class="row-fluid">
         <div class="span6">
-          <form class="form-horizontal boxcontainer">
+          <form method="post" action="/" class="form-horizontal boxcontainer">
             <div class="control-group  padtop">
-              <label class="control-label" id="username" for="inputName">Name</label>
+              <label class="control-label" for="username">Name</label>
               <div class="controls">
-                <input type="text" id="inputName" placeholder="Name">
+                <input type="text" name="username" placeholder="Name">
               </div>
             </div>
             <div class="control-group ">
-              <label class="control-label" for="inputPassword">Password</label>
+              <label class="control-label" for="userpass">Password</label>
               <div class="controls">
-                <input type="password" id="inputPassword" placeholder="Password">
+                <input type="password" name="userpass" placeholder="Password">
               </div>
             </div>
             <div class="control-group">
               <div class="controls">
-                <button type="button" id="userSignIn" class="btn">Sign In</button>
-                <button type="button" class="btn">Register</button>
+                <button type="submit" class="btn">Sign In</button>
+                <button type="submit" class="btn">Register</button>
               </div>
             </div>
           </form>
         </div>
         
         <div class="span6">
-          <form class="form-horizontal boxcontainer offset1">
+          <form method="post" action="/" class="form-horizontal boxcontainer">
             <div class="control-group  padtop">
-              <label class="control-label" for="teamName">Name</label>
+              <label class="control-label" for="teamname">Name</label>
               <div class="controls">
-                <input type="text" id="teamName" placeholder="Team Name">
+                <input type="text" name="teamname" placeholder="Team Name">
               </div>
             </div>
             <div class="control-group ">
