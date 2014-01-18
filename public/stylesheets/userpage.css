@@ -1,0 +1,8 @@
+#taskContainer {
+	position: absolute;
+	width: 100%;
+}
+
+.taskContent {
+	text-align: center;
+}

@@ -4,14 +4,14 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Express' });
 };
 
 /*
- * GET Hellow World page
+ * GET Hello World page
  */
 exports.helloworld = function(req, res){
-  res.render('helloworld', { title: 'Hello, World!' });
+	res.render('helloworld', { title: 'Hello, World!' });
 };
 
 /*
@@ -32,7 +32,7 @@ exports.userlist = function(db) {
  * GET DB Input page
  */
 exports.newuser = function(req, res){
-  res.render('newuser', { title: 'Add New User' });
+	res.render('newuser', { title: 'Add New User' });
 };
 
 /*
@@ -67,3 +67,7 @@ exports.adduser = function(db) {
 
 	}
 }
+
+exports.userpage = function(req, res) {
+	res.render('userpage', { title: 'user page' });
+};
