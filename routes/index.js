@@ -1,4 +1,3 @@
-
 /*
  * GET home page
  */
@@ -71,3 +70,7 @@ exports.adduser = function(db) {
 exports.userpage = function(req, res) {
 	res.render('userpage', { title: 'user page' });
 };
+
+exports.userpage_people = function(req, res) {
+	res.render('userpage_people', { title: 'user page'});
+}
