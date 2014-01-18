@@ -39,6 +39,7 @@ body {
 .taskContent {
 	text-align: center;
 	position: relative;
+	width: 100%;
 	left: 0px;
 	background-color: #FFAC00;
 	margin-bottom: 20px;
@@ -54,32 +55,25 @@ body {
 	position: relative;
 	float: left;
 	left: -10px;
-	width: 150%;
+	width: calc(20px + 100%);
 	margin-top: 80px;
 	background-color: #6EC5B8;
 	z-index: -1;
+	table-layout: fixed;
 }
 
-#mainContact {
-	float: left;
-}
-
-#mainContact div {
-	float: left;
+#contactTable {
 	position: relative;
-	left: 50px;
-}
-
-#mainContact img {
-	position: relative;
-	left: calc(10px + 3%);
-	top: 5px;
-	float: left;
-	height: 100px;
+	left: calc(10px + 2%);
+	width: 92%;
 }
 
 #groupContacts {
 	position: relative;
 	float: left;
+}
+
+.tableHeader {
+	text-align: center;
 }
 
