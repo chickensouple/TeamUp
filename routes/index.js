@@ -68,6 +68,12 @@ exports.adduser = function(db) {
 	}
 }
 
+/* USER PAGE */ 
 exports.userpage = function(req, res) {
 	res.render('userpage', { title: 'user page' });
+};
+
+/*CONTROLLER PAGE*/ 
+exports.controlpage = function(req, res) {
+	res.render('controlpage', { title: 'Controller Page'});
 };

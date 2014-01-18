@@ -1,0 +1,80 @@
+#taskContainer {
+	position: relative;
+	width: 100%;
+}
+
+.taskContent {
+	text-align: center;
+}
+#headerBar{
+	position: relative;
+	width:100%;
+	background: #ffac00; 
+	margin-bottom: 10px;
+	margin-top: 10px; 
+}
+.headerBar{
+	color:#ffffff;
+	font-size: 40; 
+	text-align: left;
+}
+
+#sendTask{
+	position: relative; 
+	width = 100%; 
+	background-color: #6ec5b8; 
+	margin-bottom: 10px; 
+	margin-top: 10px; 
+}
+
+#taskTracker{
+	background-color: #FFFFFF; 
+	border: 3px;
+	border-color: #6ec5b8; 
+	border-style: groove;
+}
+
+#testContainer{ 
+  width: 80%;
+  margin: auto;
+  padding: 10dp;
+  border: 1dp solid #ff9000;
+  background: #000000;
+}
+
+.testContainer {
+	color: #ff3838;
+	background-color: #029302
+	text-align: center;
+}
+
+button.orangeButton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffaa00 0%,
+		#ff9100);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffaa00),
+		to(#ff9100));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #ffaa00;
+	-moz-box-shadow:
+		1px 1px 3px rgba(0,0,0,0.7),
+		inset 0px 0px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow:
+		1px 1px 3px rgba(0,0,0,0.7),
+		inset 0px 0px 1px rgba(0,0,0,0.2);
+	box-shadow:
+		1px 1px 3px rgba(0,0,0,0.7),
+		inset 0px 0px 1px rgba(0,0,0,0.2);
+	text-shadow:
+		0px -1px 0px rgba(0,0,0,0.2),
+		0px 1px 0px rgba(194,169,194,0.2);
+}
