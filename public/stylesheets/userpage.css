@@ -12,9 +12,11 @@ body {
 	height: 10%;
 	z-index: 0;
 	text-align: center;
+	border-bottom: 10px solid white;
 }
 
 #logo {
+	top: 2%;
 	float: left;
 	position: relative;
 	top: 3px;
@@ -33,7 +35,7 @@ body {
 #taskContainer {
 	position: relative;
 	width: 100%;
-	top: 70px;
+	top: calc(10% + 20px);
 	z-index: -1;
 }
 
