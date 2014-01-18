@@ -30,6 +30,7 @@
 body{
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
+
 .heading, .subheading {
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   text-align: center;
@@ -39,6 +40,7 @@ p.lead {
   font-size: 32px;
   line-height: 30px;
 }
+
 p {
   font-size: 18px;
   line-height: 24px;
@@ -51,6 +53,7 @@ p {
 .pic {
   width: 400px;
   margin: 0 auto;
+  padding: 2.5% 0%;
 }
 .order {
   padding: 2% 0%;
@@ -65,6 +68,7 @@ p {
 .statistics h3, .statistics p {
   color: white;
 }
+
 div { position: relative; }
 .hyperspan {
   position:absolute;
