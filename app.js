@@ -36,12 +36,11 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.all('/', routes.index(db));
 // app.get('/users', user.list);
 app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage);
 app.get('/controlpage', routes.controlpage);
-
 app.get('/userpage_people', routes.userpage_people);
 
 http.createServer(app).listen(app.get('port'), function(){

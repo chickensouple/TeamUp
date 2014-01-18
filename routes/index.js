@@ -2,8 +2,15 @@
  * GET home page
  */
 
-exports.index = function(req, res){
-	res.render('index', { title: 'Express' });
+exports.index = function(db) {
+	return function(req, res){
+		res.render('index', { title: 'Express' });
+
+		var username = req.body.username;
+		var password = req.body.password;
+		console.log(username);
+		console.log(password);
+	};
 };
 
 /*
@@ -58,4 +65,4 @@ exports.controlpage = function(req, res) {
 };
 exports.userpage_people = function(req, res) {
 	res.render('userpage_people', { title: 'user page'});
-}
+};
