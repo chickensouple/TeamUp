@@ -27,8 +27,11 @@ exports.adduser = function(db) {
 		// Set our collection
 		var collection = db.get('usercollection');
 
+		console.log(userName);
+		console.log(userEmail);
+
 		// Submit to the DB
-		collection.insert({
+		/*collection.insert({
 			'username' : userName,
 			'email' : userEmail
 		}, function (err, doc) {
@@ -42,8 +45,9 @@ exports.adduser = function(db) {
 				// And forward to success page
 				res.redirect('userlist');
 			}
+			
 		});
-
+		*/
 	}
 }
 
