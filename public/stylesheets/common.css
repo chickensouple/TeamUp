@@ -1,4 +1,3 @@
-
 /* Large desktop */
 @media (min-width: 980px) { 
   body {
@@ -36,10 +35,9 @@ body{
   font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
   text-align: center;
 }
-
 p.lead {
-  padding-top: 1.5%;
-  font-size: 24px;
+  padding-top: 2%;
+  font-size: 32px;
   line-height: 30px;
 }
 
@@ -50,20 +48,56 @@ p {
 
 /* Video pitch and Action */
 .pitch {
+  padding: 2.5% 35%;
+}
+.pic {
+  width: 400px;
+  margin: 0 auto;
   padding: 2.5% 0%;
 }
 .order {
   padding: 2% 0%;
 }
 .actions {
-  background-color: #343434;
-  padding: 3% 0%;
+  background-color: #ffac00;
+  padding: 0% 0%;
 }
 .video, .thermometer, .order, .social, .statistics {
   text-align: center;
 }
 .statistics h3, .statistics p {
   color: white;
+}
+
+.boxcontainer {
+  height: 200px;
+  width: 85%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+
+  margin: 0% 0 0 0%;
+  left: 0%;
+  top: 100%;
+}
+
+.centering {
+  width: 70%;
+  margin: 10px auto;
+  position: relative;
+}
+
+.padtop {
+  padding-top: 2.5%;
+}
+
+div { position: relative; }
+.hyperspan {
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
 }
 
 /* Marketing Copy and Footer */
