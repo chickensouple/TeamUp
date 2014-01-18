@@ -69,6 +69,28 @@ p {
   color: white;
 }
 
+.boxcontainer {
+  height: 200px;
+  width: 85%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+
+  margin: 0% 0 0 0%;
+  left: 0%;
+  top: 100%;
+}
+
+.centering {
+  width: 70%;
+  margin: 10px auto;
+  position: relative;
+}
+
+.padtop {
+  padding-top: 2.5%;
+}
+
 div { position: relative; }
 .hyperspan {
   position:absolute;

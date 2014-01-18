@@ -21,8 +21,6 @@ var engine = require('ejs-locals');
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
-
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -41,9 +39,6 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 // app.get('/users', user.list);
 app.get('/helloworld', routes.helloworld);
-app.get('/userlist', routes.userlist(db));
-app.get('/newuser', routes.newuser);
-app.post('/adduser', routes.adduser(db));
 app.get('/userpage', routes.userpage);
 app.get('/userpage_people', routes.userpage_people);
 
