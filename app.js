@@ -49,8 +49,6 @@ app.get('/about_logged', routes.about_logged);
 app.get('/about_unlogged', routes.about_unlogged);
 app.get('/eventinfo', routes.eventinfo)
 
-
-
 app.post('/', function(req, res){
 
 	var userName = req.body.username;
@@ -60,7 +58,8 @@ app.post('/', function(req, res){
 	if (typeof req.body.signin !== 'undefined'){
 		console.log(req.body.username);
 		console.log(req.body.userpass);	
-		console.log(userbase.find("Clark"));
+		var cursor = userbase.find({username:"Chickens"});
+		console.log(cursor);
 		res.location('userpage');
 		res.cookie("username", userName);
 		res.redirect('userpage');
