@@ -58,8 +58,8 @@ app.post('/', function(req, res){
 	if (typeof req.body.signin !== 'undefined'){
 		console.log(req.body.username);
 		console.log(req.body.userpass);	
-		console.log(userbase);
-		console.log(teambase);
+		// console.log(userbase);
+		// console.log(teambase);
 		var object = userbase.find({username:"Chickens"});
 		console.log(object.db);
 		res.location('userpage');
