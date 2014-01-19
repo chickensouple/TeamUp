@@ -14,10 +14,16 @@ exports.helloworld = function(req, res){
 	res.render('helloworld', { username: user });
 };
  
-exports.userpage = function(req, res) {
-	var cookieTemp = req.headers.cookie;
-	res.render('userpage', { username: parseCookie(cookieTemp) });
-};
+exports.userpage = function(userbase) {
+	return function(req, res) {
+		var username = parseCookie(req.headers.cookie);
+
+		console.log(userbase.find({name: username}));
+		userbase.find({}, {}, function(e, docs) {
+			res.render('userpage', { "username": username, "user": docs});
+		});
+	};
+}
 
 exports.controlpage = function(req, res) {
 	var cookieTemp = req.headers.cookie;
