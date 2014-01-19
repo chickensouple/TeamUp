@@ -59,9 +59,7 @@ app.post('/', function(req, res){
 		console.log(req.body.username);
 		console.log(req.body.userpass);
 		var cursor = userbase.find({username:"Chickens"});
-		userbase.find().count(function(err, count) {
-			console.log("COUNT: " + count);
-		});
+		console.log("find one: " + userbase.findOne());
 		console.log(cursor);
 		res.location('userpage');
 		res.cookie("username", userName);
