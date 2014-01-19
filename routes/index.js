@@ -32,22 +32,21 @@ exports.userpage = function(req, res) {
 
 /*CONTROLLER PAGE*/ 
 exports.controlpage = function(req, res) {
-	res.render('controlpage', { title: 'Controller Page'});
-};
-
-exports.userpage_people = function(req, res) {
 	var cookieTemp = req.headers.cookie;
-	res.render('userpage_people', { username: parseCookie(cookieTemp) });
+	res.render('controlpage', { username: parseCookie(cookieTemp) });
 };
 
-exports.teammates_page = function(req,res){
-	res.render('teammates_page', { title: 'teammates page'}); 
+exports.about_logged = function(req,res){
+	var cookieTemp = req.headers.cookie;
+	res.render('about_logged', { username: parseCookie(cookieTemp) });
 };
 
-exports.about_page = function(req,res){
-	res.render('about_page', { title: 'about page'});
-};
-exports.contact_page = function(req,res){
-	res.render('contact_page', { title: 'contact_page'});
+exports.about_unlogged = function(req,res){
+	var cookieTemp = req.headers.cookie;
+	res.render('about_unlogged', { username: parseCookie(cookieTemp) });
 };
 
+exports.eventinfo = function(req,res) {
+	var cookieTemp = req.headers.cookie;
+	res.render('eventinfo', { username: parseCookie(cookieTemp) });
+}

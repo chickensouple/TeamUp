@@ -53,10 +53,9 @@ app.get('/users', user.list);
 app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage);
 app.get('/controlpage', routes.controlpage);
-app.get('/userpage_people', routes.userpage_people);
-app.get('/teammates_page', routes.teammates_page);
-app.get('/about_page', routes.about_page);
-app.get('/contact_page', routes.contact_page);
+app.get('/about_logged', routes.about_logged);
+app.get('/about_unlogged', routes.about_unlogged);
+app.get('/eventinfo', routes.eventinfo)
 
 var collection = db.get('usercollection');
 
@@ -68,29 +67,28 @@ app.post('/', function(req, res){
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
 
+	collection.insert({
+		'username' : userName,
+		'password' : userPass
+	}, function (err, doc) {
+		if (err) {
+			// If it failed, return error
+			res.send('There was a problem adding the information to the database.');
+		}
+		else {
+			// If it worked, set the header so the address bar doesn't still say /adduser
+			res.location('userpage');
+			res.cookie('username', userName);
+			// And forward to success page
+			res.redirect('userpage');
+		}
+	});
+
+
 	res.location('userpage');
 	res.cookie("username", userName);
 	res.redirect('userpage');
 	res.send();
-	// And forward to success page
-	
-
-	// collection.insert({
-	// 	'username' : userName,
-	// 	'password' : userPass
-	// }, function (err, doc) {
-	// 	if (err) {
-	// 		// If it failed, return error
-	// 		res.send('There was a problem adding the information to the database.');
-	// 	}
-	// 	else {
-	// 		// If it worked, set the header so the address bar doesn't still say /adduser
-	// 		res.location('userpage');
-	// 		res.cookie('username', userName);
-	// 		// And forward to success page
-	// 		res.redirect('userpage');
-	// 	}
-	// });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
