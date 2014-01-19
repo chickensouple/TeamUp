@@ -59,9 +59,7 @@ app.post('/', function(req, res){
 		console.log(req.body.username);
 		console.log(req.body.userpass);	
 		var cursor = userbase.find({username:"Chickens"});
-		do {
-			console.log(cursor.next());
-		}while(cursor.hasNext())
+		console.log(cursor);
 		res.location('userpage');
 		res.cookie("username", userName);
 		res.redirect('userpage');
