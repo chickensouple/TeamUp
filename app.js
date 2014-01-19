@@ -56,10 +56,10 @@ app.post('/', function(req, res){
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
 
-	if(typeof req.body.signin !== 'undefined'){
+	if (typeof req.body.signin !== 'undefined'){
 		console.log(userbase.find("Clark"));
 	}
-	elif(typeof req.body.register !== 'undefined'){
+	else if (typeof req.body.register !== 'undefined'){
 		console.log(userbase.find(userName));
 	}
 
