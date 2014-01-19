@@ -58,8 +58,10 @@ app.post('/', function(req, res){
 	if (typeof req.body.signin !== 'undefined'){
 		console.log(req.body.username);
 		console.log(req.body.userpass);	
-		var object = userbase.findOne({username:"Chickens"}).stream();
-		console.log(object);
+		console.log(userbase);
+		console.log(teambase);
+		// var object = userbase.findOne({username:"Chickens"}).stream();
+		// console.log(object);
 		res.location('userpage');
 		res.cookie("username", userName);
 		res.redirect('userpage');
