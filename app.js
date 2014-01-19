@@ -133,6 +133,7 @@ app.post('/reguser', function(req, res){
 
 		res.location('userpage');
 		res.cookie('id', userbase.length - 1);
+		res.redirect('userpage');
 		// And forward to success page
 	} else {
 		res.redirect('/');
