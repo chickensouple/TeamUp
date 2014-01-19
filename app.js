@@ -11,6 +11,7 @@ var path = require('path');
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/teamup');
+var cookies = require("cookies")
 
 
 var app = express();
@@ -36,6 +37,10 @@ app.use(express.session());
 app.use(express.json());
 app.use(express.urlencoded());
 
+app.use(express.cookieParser('my secret here'));
+app.use(express.cookieSession());
+
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -52,6 +57,7 @@ app.get('/userpage_people', routes.userpage_people);
 
 var collection = db.get('usercollection');
 
+
 app.post('/', function(req, res){
 	console.log(req.body.username);
 	console.log(req.body.userpass);
@@ -59,29 +65,34 @@ app.post('/', function(req, res){
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
 
-	collection.insert({
-		'username' : userName,
-		'password' : userPass
-	}, function (err, doc) {
-		if (err) {
-			// If it failed, return error
-			res.send('There was a problem adding the information to the database.');
-		}
-		else {
-			// If it worked, set the header so the address bar doesn't still say /adduser
-			res.location('userpage');
-			// And forward to success page
-			res.redirect('userpage');
-		}
-	});
+	res.location('userpage');
+	res.cookie("username", userName);
+	res.redirect('userpage');
+	res.send();
+	// And forward to success page
+	
+
+	// collection.insert({
+	// 	'username' : userName,
+	// 	'password' : userPass
+	// }, function (err, doc) {
+	// 	if (err) {
+	// 		// If it failed, return error
+	// 		res.send('There was a problem adding the information to the database.');
+	// 	}
+	// 	else {
+	// 		// If it worked, set the header so the address bar doesn't still say /adduser
+	// 		res.location('userpage');
+	// 		res.cookie('username', userName);
+	// 		// And forward to success page
+	// 		res.redirect('userpage');
+	// 	}
+	// });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-
-
-
 
 
 
