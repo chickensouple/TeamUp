@@ -46,6 +46,9 @@ app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage);
 app.get('/controlpage', routes.controlpage);
 app.get('/userpage_people', routes.userpage_people);
+app.get('/teammates_page', routes.teammates_page);
+app.get('/about_page', routes.about_page);
+app.get('/contact_page', routes.contact_page);
 
 app.use(function(req, res, next){
   var err = req.session.error
