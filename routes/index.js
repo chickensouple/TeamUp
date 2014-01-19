@@ -1,7 +1,5 @@
 function parseCookie (cookie) {
     var n = cookie.indexOf("=");
-    console.log("n: "  + n)
-    console.log(cookie.substring(n + 1, cookie.length));
     return cookie.substring(n + 1, cookie.length);
 }
 
@@ -16,8 +14,13 @@ exports.helloworld = function(req, res){
  
 exports.userpage = function(userbase) {
 	return function(req, res) {
-		var username = parseCookie(req.headers.cookie);
-		res.render('userpage', {"username": username});
+		var id = parseCookie(req.headers.cookie);
+		var user = userbase[findElement(userbase, id, function(a, b) {
+			if (a.id == b) {
+				return true;
+			}
+			return false; })];
+		res.render('userpage', {"user": user});
 	};
 }
 
@@ -36,7 +39,31 @@ exports.about_unlogged = function(req,res){
 	res.render('about_unlogged', { username: parseCookie(cookieTemp) });
 };
 
-exports.eventinfo = function(req,res) {
-	var cookieTemp = req.headers.cookie;
-	res.render('eventinfo', { username: parseCookie(cookieTemp) });
+exports.eventinfo = function(userbase, eventbase) {
+	return function(req,res) {
+		var id = parseCookie(req.headers.cookie);
+		var user = userbase[findElement(userbase, id, function(a, b) {
+			if (a.id == b) {
+				return true;
+			}
+			return false; })];
+		var curEvent = eventbase[findElement(eventbase, user.event, function(a, b) {
+			if (a.name == b) {
+				return true;
+			}
+			return false;
+		})];
+
+		res.render('eventinfo', { "event": curEvent, "username": user.name });
+	}
 }
+
+function findElement(array, id, fn) {
+	for (var i = array.length - 1; i >= 0; i--) {
+		if (fn(array[i], id)) {
+			return i;
+		}
+	};
+	return -1;
+}
+

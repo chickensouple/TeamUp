@@ -65,7 +65,7 @@
       <div class="row-fluid ">
         <div class="span12">
           <p>
-            Logged in as: <%= username %>
+            Logged in as: <%= user.name %>
           </p>
         </div>
       </div>
@@ -73,12 +73,12 @@
       <div class="row-fluid section1">
         <div class="span5 offset1 copy">
         	<p>
-        		task name:
+        		Current task: <%= user.task%>
         	</p>
         </div>
         <div class="span5 copy">
     			<p>
-    	       location
+    	       Task Location: <%= user.task_location%>
     			</p>
         </div>
       </div>
@@ -86,12 +86,12 @@
       <div class="row-fluid section2">
         <div class="span5 offset1 copy">
     			<p>
-    	       time
+    	       Task Time: <%= user.task_time%>
     			</p>
         </div>
         <div class="span5 copy">
     			<p>
-    	     details
+    	       Task Description: <%= user.task_desc%>
     			</p>
         </div>
       </div>
