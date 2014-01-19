@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
-    <link rel="stylesheet" href="/stylesheets/common.css">    
+    <link rel="stylesheet" href="/stylesheets/common.css">  
+    <link rel="stylesheet" href="/stylesheets/index.css">  
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
     <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
     <script src="/scripts/indexscript.js"></script>
@@ -67,46 +68,145 @@
         </div>
       </div>
 
-      <div class="row-fluid">
-        <div class="span6">
-          <form method="post" action="/" class="form-horizontal boxcontainer">
-            <div class="control-group padtop">
-              <label class="control-label" for="username">Name</label>
-              <div class="controls">
-                <input type="text" name="username" placeholder="Name" autofocus>
+
+
+
+
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                <h1> Sign in </h1>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            
+            <div class="row-fluid">
+              <div class="span6 offset3">
+                <form method="post" action="/" class="form-horizontal boxcontainer">
+                  <div class="control-group padtop">
+                    <label class="control-label" for="username">Name</label>
+                    <div class="controls">
+                      <input type="text" name="username" placeholder="Name" autofocus>
+                    </div>
+                  </div>
+                  <div class="control-group ">
+                    <label class="control-label" for="userpass">Password</label>
+                    <div class="controls">
+                      <input type="password" name="userpass">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn" name="signin" >Sign In</button>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </div>
-            <div class="control-group ">
-              <label class="control-label" for="userpass">Password</label>
-              <div class="controls">
-                <input type="password" name="userpass">
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <button type="submit" class="btn" name="signin" >Sign In</button>
-                <button type="submit" class="btn" name="register" >Register</button>
-              </div>
-            </div>
-          </form>
+             </div>
+
+
+
+          </div>
         </div>
-        
-        <div class="span6">
-          <form method="post" action="/" class="form-horizontal boxcontainer">
-            <div class="control-gro up  padtop">
-              <label class="control-label" for="teamname">Name</label>
-              <div class="controls">
-                <input type="text" name="teamname" placeholder="Team Name">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                <h1> Register an Event </h1>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            
+
+            <div class="row-fluid">
+              <div class="span6 offset3">
+                <form method="post" action="/" class="form-horizontal boxcontainer">
+                  <div class="control-group  padtop">
+                    <label class="control-label" for="teamname">Event Name</label>
+                    <div class="controls">
+                      <input type="text" name="teamname" placeholder="Event Name">
+                    </div>
+                    <label class="control-label" for="teamname">Location</label>
+                    <div class="controls">
+                      <input type="text" name="locationname" placeholder="Location">
+                    </div>
+                    <label class="control-label" for="teamname">Date and Time</label>
+                    <div class="controls">
+                      <input type="text" name="dateandtime" placeholder="Date and Time">
+                    </div>
+                    <label class="control-label" for="teamname">Description</label>
+                    <div class="controls">
+                      <input type="text" name="description" placeholder="Description">
+                    </div>
+
+                  </div>
+                  <div class="control-group padtop">
+                    <div class="controls">
+                      <button type="button" class="btn">Register Event</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-            <div class="control-group padtop">
-              <div class="controls">
-                <button type="button" class="btn">Register Team</button>
+
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                <h1> Register for an Event </h1>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+
+
+            <div class="row-fluid" id="registerUserForm">
+              <div class="span6 offset3">
+                <form method="post" action="/" class="form-horizontal boxcontainer">
+                  <div class="control-group padtop">
+                    <label class="control-label" for="username">Name</label>
+                    <div class="controls">
+                      <input type="text" name="username" placeholder="Name" autofocus>
+                    </div>
+                    <label class="control-label" for="userpass">Password</label>
+                    <div class="controls">
+                      <input type="password" name="userpass">
+                    </div>
+                    <label class="control-label" for="teamname">Email</label>
+                    <div class="controls registerShow">
+                      <input type="text" name="email" placeholder="Email">
+                    </div>
+                    <label class="control-label" for="teamname">Phone Number</label>
+                    <div class="controls">
+                      <input type="text" name="phonenumber" placeholder="Phone Number">
+                    </div>
+                    <label class="control-label" for="teamname">Event Name</label>
+                    <div class="controls">
+                      <input type="text" name="eventname" placeholder="Event Name">
+                    </div>
+                    <div class="controls">
+                      <button type="submit" class="btn" name="register" >Register For An Event</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-          </form>
+
+
+
+          </div>
         </div>
       </div>
+
+
+
+
 
       <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->
