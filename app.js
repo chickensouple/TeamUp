@@ -3,9 +3,9 @@ var routes = require('./routes');
 var user = require('./routes/user')
 var http = require('http');
 var path = require('path');
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/teamup');
+// var mongo = require('mongodb');
+// var monk = require('monk');
+// var db = monk('localhost:27017/teamup');
 var cookies = require("cookies")
 
 var app = express();
@@ -36,9 +36,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-
-var userbase = db.get('teamup.users');
-var teambase = db.get('teamup.teams');
+userbase = []
 
 app.get('/', routes.index);
 app.get('/users', user.list);
@@ -54,43 +52,12 @@ app.post('/', function(req, res){
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
 
-
-	if (typeof req.body.signin !== 'undefined'){
-		console.log(req.body.username);
-		console.log(req.body.userpass);
-		var cursor = userbase.find({username:"Chickens"});
-		console.log("find one: " + userbase.findOne());
-		console.log(cursor);
-		res.location('userpage');
-		res.cookie("username", userName);
-		res.redirect('userpage');
-		res.send();
-	}
-	else if (typeof req.body.reguser !== 'undefined'){
-		console.log(userbase.find("Alex"));
-	}
-	else if (typeof req.body.regevent !== 'undefined'){
-		console.log(userbase.find("Turnips"));
-	}
 	
-	// collection.insert({
-	// 	'username' : userName,
-	// 	'password' : userPass
-	// }, function (err, doc) {
-	// 	if (err) {
-	// 		// If it failed, return error
-	// 		res.send('There was a problem adding the information to the database.');
-	// 	}
-	// 	else {
-	// 		// If it worked, set the header so the address bar doesn't still say /adduser
-	// 		res.location('userpage');
-	// 		res.cookie('username', userName);
-	// 		// And forward to success page
-	// 		res.redirect('userpage');
-	// 	}
-	// });
 
-	
+	res.location('userpage');
+	res.cookie('username', userName);
+	// And forward to success page
+	res.redirect('userpage');
 
 
 });

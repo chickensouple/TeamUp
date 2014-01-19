@@ -17,11 +17,7 @@ exports.helloworld = function(req, res){
 exports.userpage = function(userbase) {
 	return function(req, res) {
 		var username = parseCookie(req.headers.cookie);
-
-		console.log(userbase.find({name: username}));
-		userbase.find({}, {}, function(e, docs) {
-			res.render('userpage', { "username": username, "user": docs});
-		});
+		res.render('userpage', {"username": username});
 	};
 }
 
