@@ -27,8 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.session());
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(express.bodyParser());
-
 app.use(express.cookieParser('my secret here'));
 app.use(express.cookieSession());
 
@@ -51,18 +49,19 @@ var userbase = db.get('teamup.users');
 var teambase = db.get('teamup.teams');
 
 app.post('/', function(req, res){
-	var userName = req.body.username;
-	var userPass = req.body.userpass;
-
 	console.log(userName);
 	console.log(userPass);	
 
-	if (typeof req.body.signin !== 'undefined'){
-		console.log(userbase.find("Clark"));
-	}
-	else if (typeof req.body.register !== 'undefined'){
-		console.log(userbase.find(userName));
-	}
+	var userName = req.body.username;
+	var userPass = req.body.userpass;
+
+
+	// if (typeof req.body.signin !== 'undefined'){
+		// console.log(userbase.find("Clark"));
+	// }
+	// else if (typeof req.body.register !== 'undefined'){
+		// console.log(userbase.find(userName));
+	// }
 
 	collection.insert({
 		'username' : userName,
