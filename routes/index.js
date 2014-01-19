@@ -20,7 +20,7 @@ exports.userpage = function(userbase) {
 
 		console.log(userbase.find({name: username}));
 		userbase.find({name: username}, function(e, docs) {
-			res.render('userpage', { username: parseCookie(cookieTemp) });
+			res.render('userpage', { "username": username, "user": docs});
 		});
 	};
 }
