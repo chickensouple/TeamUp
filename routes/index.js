@@ -36,17 +36,18 @@ exports.controlpage = function(req, res) {
 };
 
 exports.userpage_people = function(req, res) {
-	res.render('userpage_people', { title: 'user page'});
+	var cookieTemp = req.headers.cookie;
+	res.render('userpage_people', { username: parseCookie(cookieTemp) });
 };
 
 exports.teammates_page = function(req,res){
 	res.render('teammates_page', { title: 'teammates page'}); 
 };
+
 exports.about_page = function(req,res){
 	res.render('about_page', { title: 'about page'});
 };
 exports.contact_page = function(req,res){
 	res.render('contact_page', { title: 'contact_page'});
 };
-
 
