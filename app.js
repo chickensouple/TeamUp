@@ -60,8 +60,8 @@ app.post('/', function(req, res){
 		console.log(req.body.userpass);	
 		console.log(userbase);
 		console.log(teambase);
-		// var object = userbase.findOne({username:"Chickens"}).stream();
-		// console.log(object);
+		var object = userbase.find({username:"Chickens"}).stream();
+		console.log(object);
 		res.location('userpage');
 		res.cookie("username", userName);
 		res.redirect('userpage');
