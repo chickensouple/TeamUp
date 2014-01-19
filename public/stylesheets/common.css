@@ -1,5 +1,5 @@
 /* Large desktop */
-@media (min-width: 980px) { 
+@media (min-width: 940px) { 
   body {
    padding-top: 60px;
   }
@@ -9,6 +9,7 @@
  .linediv-r {
    border-left: 1px white solid;
  }
+
 }
 
 /* Landscape phones and down */
@@ -22,9 +23,10 @@
  .linediv-r {
    border-top: 1px white solid;
  }
+
 }
 
-/* All form factors */
+/* All form factors */ 
 
 /* Main body and headings */
 body{
