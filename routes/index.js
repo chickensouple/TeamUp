@@ -19,7 +19,7 @@ exports.userpage = function(userbase) {
 		var username = parseCookie(req.headers.cookie);
 
 		console.log(userbase.find({name: username}));
-		userbase.find({name: username}, function(e, docs) {
+		userbase.find({}, {}, function(e, docs) {
 			res.render('userpage', { "username": username, "user": docs});
 		});
 	};
