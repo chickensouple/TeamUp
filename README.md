@@ -8,4 +8,4 @@ Simplify your even management with TeamUp!
 
 
 
-forked off of The Dead-Simple Step-by-Step Guide for Front-End Developers to Getting Up and Running with Node.JS, Express, Jade, and MongoDB
+built off of The Dead-Simple Step-by-Step Guide for Front-End Developers to Getting Up and Running with Node.JS, Express, Jade, and MongoDB
