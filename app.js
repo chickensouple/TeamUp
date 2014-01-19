@@ -41,9 +41,8 @@ eventbase = []
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage(userbase));
-app.get('/controlpage', routes.controlpage);
+app.get('/controlpage', routes.controlpage(userbase));
 app.get('/about_logged', routes.about_logged);
 app.get('/about_unlogged', routes.about_unlogged);
 app.get('/eventinfo', routes.eventinfo(userbase, eventbase))

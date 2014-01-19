@@ -115,8 +115,9 @@
       </p> 
 </div> 
 <div class="container">
-		<table class ="table table-bordered" class ="table table-hover" align="center" width="75%">
+		<table class ="table table-bordered" class ="table table-hover" align="center" width="75%" border>
 			<thead>
+        <tr>
 				<td width="20%">
 					<strong>Name</strong>
 				</td width="25%">
@@ -126,7 +127,18 @@
 				<td width="60%">
 					<strong>Task</strong>
 				</td>
-			</thead>	
+        </tr>
+			</thead>
+
+      <% for(var i=0; i<userbase.length; i++) {%>
+        <tr>
+          <td> <%= userbase[i].name %></td>
+          <td> <%= userbase[i].task_location %> </td>
+          <td> <%= userbase[i].task %> </td>
+
+        </tr>
+      <% } %>
+
 		</table>		
 </div>
 

@@ -24,10 +24,17 @@ exports.userpage = function(userbase) {
 	};
 }
 
-exports.controlpage = function(req, res) {
-	var cookieTemp = req.headers.cookie;
-	res.render('controlpage', { username: parseCookie(cookieTemp) });
-};
+exports.controlpage = function(userbase) {
+	return function(req, res) {
+		var id = parseCookie(req.headers.cookie);
+		var user = userbase[findElement(userbase, id, function(a, b) {
+			if (a.id == b) {
+				return true;
+			}
+			return false; })];
+		res.render('controlpage', { "username": user.name, "userbase": userbase });
+	};
+}
 
 exports.about_logged = function(req,res){
 	var cookieTemp = req.headers.cookie;
