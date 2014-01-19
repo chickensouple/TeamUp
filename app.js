@@ -22,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.methodOverride());
+app.use(express.bodyParser());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.session());
@@ -49,6 +50,7 @@ var userbase = db.get('teamup.users');
 var teambase = db.get('teamup.teams');
 
 app.post('/', function(req, res){
+	console.log(req.body);
 	console.log(req.body.username);
 	console.log(req.body.userpass);	
 
@@ -63,22 +65,22 @@ app.post('/', function(req, res){
 		// console.log(userbase.find(userName));
 	// }
 
-	collection.insert({
-		'username' : userName,
-		'password' : userPass
-	}, function (err, doc) {
-		if (err) {
-			// If it failed, return error
-			res.send('There was a problem adding the information to the database.');
-		}
-		else {
-			// If it worked, set the header so the address bar doesn't still say /adduser
-			res.location('userpage');
-			res.cookie('username', userName);
-			// And forward to success page
-			res.redirect('userpage');
-		}
-	});
+	// collection.insert({
+	// 	'username' : userName,
+	// 	'password' : userPass
+	// }, function (err, doc) {
+	// 	if (err) {
+	// 		// If it failed, return error
+	// 		res.send('There was a problem adding the information to the database.');
+	// 	}
+	// 	else {
+	// 		// If it worked, set the header so the address bar doesn't still say /adduser
+	// 		res.location('userpage');
+	// 		res.cookie('username', userName);
+	// 		// And forward to success page
+	// 		res.redirect('userpage');
+	// 	}
+	// });
 
 	res.location('userpage');
 	res.cookie("username", userName);
