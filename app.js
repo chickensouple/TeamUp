@@ -58,7 +58,10 @@ app.post('/', function(req, res){
 	if (typeof req.body.signin !== 'undefined'){
 		console.log(req.body.username);
 		console.log(req.body.userpass);	
-		console.log(userbase.find("Clark"));
+		var cursor = userbase.find({username:"Clark"});
+		do {
+			console.log(cursor.next());
+		}while(cursor.hasNext())
 		res.location('userpage');
 		res.cookie("username", userName);
 		res.redirect('userpage');
