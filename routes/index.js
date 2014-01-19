@@ -6,11 +6,6 @@ function parseCookie (cookie) {
 exports.index = function(req, res){
 		res.render('index', { title: 'Express' });
 };
-
-exports.helloworld = function(req, res){
-	var user = req.cookies.username;
-	res.render('helloworld', { username: user });
-};
  
 exports.userpage = function(userbase) {
 	return function(req, res) {
@@ -32,7 +27,7 @@ exports.controlpage = function(userbase) {
 				return true;
 			}
 			return false; })];
-		res.render('controlpage', { "username": user.name, "userbase": userbase });
+		res.render('controlpage', { "user": user, "userbase": userbase });
 	};
 }
 

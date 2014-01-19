@@ -63,11 +63,8 @@ app.post('/sign', function(req, res){
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
 
-console.log("userbase name: " + userbase[0].name);
-		console.log("userbase pass: " + userbase[0].password);
 	for (var i = userbase.length - 1; i >= 0; i--) {
 		
-
 
 		if (userbase[i].name == userName && userbase[i].password == userPass) {
 			res.location('userpage');
@@ -143,6 +140,31 @@ app.post('/reguser', function(req, res){
 	}
 	
 });
+
+app.post('/task', function(req, res) {
+	var username = req.body.inputName;
+	var location = req.body.inputLocation;
+	var inputTask = req.body.inputTask;
+	var inputDetails = req.body.inputDetails;
+
+	var n = findElement(userbase, username, function(a, b) {
+			if (a.name == b) {
+				return true;
+			}
+			return false; });
+
+	if (n != -1) {
+		userbase[n].task = inputTask;
+		userbase[n].task_location = location;
+		userbase[n].task_desc = inputDetails;
+		res.redirect('controlpage');
+
+	} else {
+		res.redirect('controlpage');
+	}
+});
+
+
 
 
 

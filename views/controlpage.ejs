@@ -54,7 +54,7 @@
       <div class="row-fluid ">
         <div class="span12">
           <p>
-            Logged in as: <%= username %>
+            Logged in as: <%= user.name %>
           </p>
         </div>
       </div>
@@ -68,23 +68,23 @@
 
 <div class="container">
 
-      <form class="form-horizontal">
+      <form class="form-horizontal" method="post" action="/task">
   		<div class="control-group">
     		<label class="control-label" for="inputName">Name</label>
     		<div class="controls">
-      			<input type="text" id="inputName" placeholder="Name">
+      			<input type="text" name="inputName" placeholder="Name">
   	  		</div>
   		</div>
   		<div class="control-group">
    	 		<label class="control-label" for="inputLocation">Location of Task</label>
     		<div class="controls">
-      			<input type="text" id="inputLocation" placeholder="Location">
+      			<input type="text" name="inputLocation" placeholder="Location">
     		</div>
   		</div>
   		<div class="control-group">
    	 		<label class="control-label" for="inputTask">Task</label>
     		<div class="controls">
-      			<input class="input-xxlarge" type="text" id="inputTask" placeholder="Task">
+      			<input class="input-xxlarge" type="text" name="inputTask" placeholder="Task">
       			
     		</div>
   		</div>
@@ -92,7 +92,7 @@
   		<div class="control-group">
    	 		<label class="control-label" for="inputDetails">Details</label>
     		<div class="controls">
-      			<input class="input-xxlarge" type="text" id="inputDetails" placeholder="Details">
+      			<input class="input-xxlarge" type="text" name="inputDetails" placeholder="Details">
       			
     		</div>
   		</div>
@@ -131,12 +131,14 @@
 			</thead>
 
       <% for(var i=0; i<userbase.length; i++) {%>
+        <% if (userbase[i].event == user.event) {%>
         <tr>
           <td> <%= userbase[i].name %></td>
           <td> <%= userbase[i].task_location %> </td>
           <td> <%= userbase[i].task %> </td>
 
         </tr>
+        <% } %>
       <% } %>
 
 		</table>		
