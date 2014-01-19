@@ -58,13 +58,16 @@ app.post('/', function(req, res){
 	var userPass = req.body.userpass;
 
 
-	// if (typeof req.body.signin !== 'undefined'){
-		// console.log(userbase.find("Clark"));
-	// }
-	// else if (typeof req.body.register !== 'undefined'){
-		// console.log(userbase.find(userName));
-	// }
-
+	if (typeof req.body.signin !== 'undefined'){
+		console.log(userbase.find("Clark"));
+	}
+	else if (typeof req.body.reguser !== 'undefined'){
+		console.log(userbase.find("Alex"));
+	}
+	else if (typeof req.body.regevent !== 'undefined'){
+		console.log(userbase.find("Turnips"));
+	}
+	
 	// collection.insert({
 	// 	'username' : userName,
 	// 	'password' : userPass
