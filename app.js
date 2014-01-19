@@ -27,6 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.session());
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.bodyParser());
 
 app.use(express.cookieParser('my secret here'));
 app.use(express.cookieSession());
