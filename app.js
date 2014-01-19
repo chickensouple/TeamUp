@@ -46,8 +46,8 @@ app.get('/about_logged', routes.about_logged);
 app.get('/about_unlogged', routes.about_unlogged);
 app.get('/eventinfo', routes.eventinfo)
 
-var userbase = db.get('teamup.users');
-var teambase = db.get('teamup.teams');
+var userbase = db.get('users');
+var teambase = db.get('teams');
 
 app.post('/', function(req, res){
 
