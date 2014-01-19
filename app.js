@@ -50,11 +50,11 @@ var userbase = db.get('teamup.users');
 var teambase = db.get('teamup.teams');
 
 app.post('/', function(req, res){
-	console.log(req.body.username);
-	console.log(req.body.userpass);
-	
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
+
+	console.log(userName);
+	console.log(userPass);	
 
 	if (typeof req.body.signin !== 'undefined'){
 		console.log(userbase.find("Clark"));
