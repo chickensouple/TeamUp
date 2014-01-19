@@ -61,7 +61,7 @@ app.post('/', function(req, res){
 		// console.log(userbase);
 		// console.log(teambase);
 		var object = userbase.find({username:"Chickens"});
-		console.log(object.db);
+		console.log(object.col.col.collection);
 		res.location('userpage');
 		res.cookie("username", userName);
 		res.redirect('userpage');
