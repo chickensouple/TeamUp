@@ -50,21 +50,27 @@ var userbase = db.get('teamup.users');
 var teambase = db.get('teamup.teams');
 
 app.post('/', function(req, res){
-	console.log(req.body);
-	console.log(req.body.username);
-	console.log(req.body.userpass);	
 
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
 
 
-	// if (typeof req.body.signin !== 'undefined'){
-		// console.log(userbase.find("Clark"));
-	// }
-	// else if (typeof req.body.register !== 'undefined'){
-		// console.log(userbase.find(userName));
-	// }
-
+	if (typeof req.body.signin !== 'undefined'){
+		console.log(req.body.username);
+		console.log(req.body.userpass);	
+		console.log(userbase.find("Clark"));
+		res.location('userpage');
+		res.cookie("username", userName);
+		res.redirect('userpage');
+		res.send();
+	}
+	else if (typeof req.body.reguser !== 'undefined'){
+		console.log(userbase.find("Alex"));
+	}
+	else if (typeof req.body.regevent !== 'undefined'){
+		console.log(userbase.find("Turnips"));
+	}
+	
 	// collection.insert({
 	// 	'username' : userName,
 	// 	'password' : userPass
@@ -82,10 +88,7 @@ app.post('/', function(req, res){
 	// 	}
 	// });
 
-	res.location('userpage');
-	res.cookie("username", userName);
-	res.redirect('userpage');
-	res.send();
+
 });
 
 http.createServer(app).listen(app.get('port'), function(){
