@@ -68,7 +68,7 @@ app.post('/sign', function(req, res){
 
 		if (userbase[i].name == userName && userbase[i].password == userPass) {
 			res.location('userpage');
-			res.cookie('id', userbase.length - 1);
+			res.cookie('id', userbase[i].id);
 			// And forward to success page
 			res.redirect('userpage');
 		}
