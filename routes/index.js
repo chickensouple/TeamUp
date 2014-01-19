@@ -10,17 +10,24 @@ exports.index = function(req, res){
  * GET Hello World page
  */
 exports.helloworld = function(req, res){
-	res.render('helloworld', { title: 'Hello, World!' });
+	var user = req.cookies.username;
+	res.render('helloworld', { username: user });
 };
 
 /*
  * GET DB Output page
  */
-
+function parseCookie (cookie) {
+    var n = cookie.indexOf("=");
+    console.log("n: "  + n)
+    console.log(cookie.substring(n + 1, cookie.length));
+    return cookie.substring(n + 1, cookie.length);
+}
 
 /* USER PAGE */ 
 exports.userpage = function(req, res) {
-	res.render('userpage', { title: 'user page' });
+	var cookieTemp = req.headers.cookie;
+	res.render('userpage', { username: parseCookie(cookieTemp) });
 };
 
 /*CONTROLLER PAGE*/ 
@@ -29,5 +36,8 @@ exports.controlpage = function(req, res) {
 };
 
 exports.userpage_people = function(req, res) {
-	res.render('userpage_people', { title: 'user page'});
+	var cookieTemp = req.headers.cookie;
+	res.render('userpage_people', { username: parseCookie(cookieTemp) });
 };
+
+
