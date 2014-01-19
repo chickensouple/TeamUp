@@ -36,8 +36,8 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Managers</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="/about_page">About</a></li>
+              <li><a href="/contact_page">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -45,15 +45,18 @@
     </div>
 
 <div class="container">
+      <div class="row-fluid ">
+        <div class="span12">
+          <p>
+            Logged in as: <%= username %>
+          </p>
+        </div>
+      </div>
       <div class="row-fluid heading">
         <div class="span12">
           <h1 style="color:#6ec5b8">Assign Tasks</h1>
         </div>
       </div> 
-</div> 
-
-
-<div class="container">
       <form class="form-horizontal">
   		<div class="control-group">
     		<label class="control-label" for="inputName">Name</label>

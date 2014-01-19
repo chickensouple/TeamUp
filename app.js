@@ -1,8 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user')
@@ -13,9 +8,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/teamup');
 var cookies = require("cookies")
 
-
 var app = express();
-
 
 var express = require('express');
 var engine = require('ejs-locals');
@@ -26,10 +19,8 @@ app.set('view engine', 'ejs');
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
-app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -40,12 +31,10 @@ app.use(express.urlencoded());
 app.use(express.cookieParser('my secret here'));
 app.use(express.cookieSession());
 
-
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
 
 app.get('/', routes.index);
 app.get('/users', user.list);
@@ -53,10 +42,9 @@ app.get('/users', user.list);
 app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage);
 app.get('/controlpage', routes.controlpage);
-app.get('/userpage_people', routes.userpage_people);
-app.get('/teammates_page', routes.teammates_page);
-app.get('/about_page', routes.about_page);
-app.get('/contact_page', routes.contact_page);
+app.get('/about_logged', routes.about_logged);
+app.get('/about_unlogged', routes.about_unlogged);
+app.get('/eventinfo', routes.eventinfo)
 
 var userbase = db.get('teamup.users');
 var teambase = db.get('teamup.teams');
@@ -67,36 +55,35 @@ app.post('/', function(req, res){
 	
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
+
 	if(typeof req.body.signin !== 'undefined'){
 		console.log(userbase.find("Clark"));
 	}
 	elif(typeof req.body.register !== 'undefined'){
 		console.log(userbase.find(userName));
 	}
-	
+
+	collection.insert({
+		'username' : userName,
+		'password' : userPass
+	}, function (err, doc) {
+		if (err) {
+			// If it failed, return error
+			res.send('There was a problem adding the information to the database.');
+		}
+		else {
+			// If it worked, set the header so the address bar doesn't still say /adduser
+			res.location('userpage');
+			res.cookie('username', userName);
+			// And forward to success page
+			res.redirect('userpage');
+		}
+	});
+
 	res.location('userpage');
 	res.cookie("username", userName);
 	res.redirect('userpage');
 	res.send();
-	// And forward to success page
-	
-
-	// collection.insert({
-	// 	'username' : userName,
-	// 	'password' : userPass
-	// }, function (err, doc) {
-	// 	if (err) {
-	// 		// If it failed, return error
-	// 		res.send('There was a problem adding the information to the database.');
-	// 	}
-	// 	else {
-	// 		// If it worked, set the header so the address bar doesn't still say /adduser
-	// 		res.location('userpage');
-	// 		res.cookie('username', userName);
-	// 		// And forward to success page
-	// 		res.redirect('userpage');
-	// 	}
-	// });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
