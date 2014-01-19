@@ -37,8 +37,7 @@ exports.about_logged = function(req,res){
 };
 
 exports.about_unlogged = function(req,res){
-	var cookieTemp = req.headers.cookie;
-	res.render('about_unlogged', { username: parseCookie(cookieTemp) });
+	res.render('about_unlogged');
 };
 
 exports.eventinfo = function(userbase, eventbase) {
