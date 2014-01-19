@@ -37,8 +37,9 @@
           <a class="brand" href="/">TeamUp!</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li id="home"><a>Info</a></li>
-              <li id="people" class="active"><a href="/userpage_people">People</a></li>
+              <li><a href="/">Home</a></li>
+              <li class="active"><a>Info</a></li>
+              <li><a href="/userpage_people">People</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -52,7 +53,6 @@
       <!-- Font and paired font of .heading/.subheading and body from Google Fonts -->
       <!-- www.google.com/fonts/specimen/Ubuntu -->
       <!-- www.google.com/fonts/specimen/Ubuntu#pairings -->
-      
 
       <!-- Beyond this part the marketing copy begins. -->
       <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
@@ -61,7 +61,7 @@
       <div class="row-fluid ">
         <div class="span12">
           <p>
-            logged in as:
+            Logged in as: <%= username %>
           </p>
         </div>
       </div>

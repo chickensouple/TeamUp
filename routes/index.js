@@ -3,64 +3,40 @@
  */
 
 exports.index = function(req, res){
-	res.render('index', { title: 'Express' });
+		res.render('index', { title: 'Express' });
 };
 
 /*
  * GET Hello World page
  */
 exports.helloworld = function(req, res){
-	res.render('helloworld', { title: 'Hello, World!' });
+	var user = req.cookies.username;
+	res.render('helloworld', { username: user });
 };
 
 /*
  * GET DB Output page
  */
-
-exports.adduser = function(db) {
-	return function(req, res) {
-
-		// Get our form values. These rely on the 'name' attributes
-		var userName = req.body.username;
-		var userEmail = req.body.useremail;
-
-		// Set our collection
-		var collection = db.get('usercollection');
-
-		console.log(userName);
-		console.log(userEmail);
-
-		// Submit to the DB
-		/*collection.insert({
-			'username' : userName,
-			'email' : userEmail
-		}, function (err, doc) {
-			if (err) {
-				// If it failed, return error
-				res.send('There was a problem adding the information to the database.');
-			}
-			else {
-				// If it worked, set the header so the address bar doesn't still say /adduser
-				res.location('userlist');
-				// And forward to success page
-				res.redirect('userlist');
-			}
-			
-		});
-		*/
-	}
+function parseCookie (cookie) {
+    var n = cookie.indexOf("=");
+    console.log("n: "  + n)
+    console.log(cookie.substring(n + 1, cookie.length));
+    return cookie.substring(n + 1, cookie.length);
 }
 
 /* USER PAGE */ 
 exports.userpage = function(req, res) {
-	res.render('userpage', { title: 'user page' });
+	var cookieTemp = req.headers.cookie;
+	res.render('userpage', { username: parseCookie(cookieTemp) });
 };
 
 /*CONTROLLER PAGE*/ 
 exports.controlpage = function(req, res) {
 	res.render('controlpage', { title: 'Controller Page'});
 };
+
 exports.userpage_people = function(req, res) {
+<<<<<<< HEAD
 	res.render('userpage_people', { title: 'user page'});
 };
 
@@ -73,3 +49,8 @@ exports.about_page = function(req,res){
 exports.contact_page = function(req,res){
 	res.render('contact_page', { title: 'contact_page'});
 };
+
+	var cookieTemp = req.headers.cookie;
+	res.render('userpage_people', { username: parseCookie(cookieTemp) });
+};
+

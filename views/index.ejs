@@ -31,8 +31,9 @@
           <a class="brand" href="#">TeamUp!</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Info</a></li>
-              <li><a href="/userpage">People</a></li>
+              <li class="active"><a>Home</a></li>
+              <li><a href="/userpage">Info</a></li>
+              <li><a href="/userpage_people">People</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -58,26 +59,27 @@
         </div>
       </div> 
       <div class="row-fluid subheading">
-        <div class="span12">
+        <div class="span12 padbot">
           <!-- Special typography from Bootstrap for lead paragraph. -->
           <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
-          <p class="lead">manage volunteers and coordinate events with ease</p>
+          <p class="lead">manage and coordinate events with ease</p>
+
         </div>
       </div>
 
       <div class="row-fluid">
         <div class="span6">
           <form method="post" action="/" class="form-horizontal boxcontainer">
-            <div class="control-group  padtop">
+            <div class="control-group padtop">
               <label class="control-label" for="username">Name</label>
               <div class="controls">
-                <input type="text" name="username" placeholder="Name">
+                <input type="text" name="username" placeholder="Name" autofocus>
               </div>
             </div>
             <div class="control-group ">
               <label class="control-label" for="userpass">Password</label>
               <div class="controls">
-                <input type="password" name="userpass" placeholder="Password">
+                <input type="password" name="userpass">
               </div>
             </div>
             <div class="control-group">
@@ -91,13 +93,13 @@
         
         <div class="span6">
           <form method="post" action="/" class="form-horizontal boxcontainer">
-            <div class="control-group  padtop">
+            <div class="control-gro up  padtop">
               <label class="control-label" for="teamname">Name</label>
               <div class="controls">
                 <input type="text" name="teamname" placeholder="Team Name">
               </div>
             </div>
-            <div class="control-group ">
+            <div class="control-group padtop">
               <div class="controls">
                 <button type="button" class="btn">Register Team</button>
               </div>

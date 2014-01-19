@@ -10,7 +10,9 @@ var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/nodetest1');
+var db = monk('localhost:27017/teamup');
+var cookies = require("cookies")
+
 
 var app = express();
 
@@ -35,13 +37,19 @@ app.use(express.session());
 app.use(express.json());
 app.use(express.urlencoded());
 
+app.use(express.cookieParser('my secret here'));
+app.use(express.cookieSession());
+
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+
 app.get('/', routes.index);
 app.get('/users', user.list);
+
 app.get('/helloworld', routes.helloworld);
 app.get('/userpage', routes.userpage);
 app.get('/controlpage', routes.controlpage);
@@ -50,32 +58,44 @@ app.get('/teammates_page', routes.teammates_page);
 app.get('/about_page', routes.about_page);
 app.get('/contact_page', routes.contact_page);
 
-app.use(function(req, res, next){
-  var err = req.session.error
-    , msg = req.session.success;
-  delete req.session.error;
-  delete req.session.success;
-  res.locals.message = '';
-  if (err) res.locals.message = '<p class="msg error">' + err + '</p>';
-  if (msg) res.locals.message = '<p class="msg success">' + msg + '</p>';
-  next();
-});
+var collection = db.get('usercollection');
 
-var users = {
-  clark: { name: 'clark' }
-};
 
 app.post('/', function(req, res){
 	console.log(req.body.username);
 	console.log(req.body.userpass);
+
+	var userName = req.body.username;
+	var userPass = req.body.userpass;
+
+	res.location('userpage');
+	res.cookie("username", userName);
+	res.redirect('userpage');
+	res.send();
+	// And forward to success page
+	
+
+	// collection.insert({
+	// 	'username' : userName,
+	// 	'password' : userPass
+	// }, function (err, doc) {
+	// 	if (err) {
+	// 		// If it failed, return error
+	// 		res.send('There was a problem adding the information to the database.');
+	// 	}
+	// 	else {
+	// 		// If it worked, set the header so the address bar doesn't still say /adduser
+	// 		res.location('userpage');
+	// 		res.cookie('username', userName);
+	// 		// And forward to success page
+	// 		res.redirect('userpage');
+	// 	}
+	// });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-
-
-
 
 
 
