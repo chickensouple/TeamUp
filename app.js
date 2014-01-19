@@ -58,16 +58,22 @@ app.get('/teammates_page', routes.teammates_page);
 app.get('/about_page', routes.about_page);
 app.get('/contact_page', routes.contact_page);
 
-var collection = db.get('usercollection');
-
+var userbase = db.get('teamup.users');
+var teambase = db.get('teamup.teams');
 
 app.post('/', function(req, res){
 	console.log(req.body.username);
 	console.log(req.body.userpass);
-
+	
 	var userName = req.body.username;
 	var userPass = req.body.userpass;
-
+	if(typeof req.body.signin !== 'undefined'){
+		console.log(userbase.find("Clark"));
+	}
+	elif(typeof req.body.register !== 'undefined'){
+		console.log(userbase.find(userName));
+	}
+	
 	res.location('userpage');
 	res.cookie("username", userName);
 	res.redirect('userpage');
