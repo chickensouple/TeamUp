@@ -36,7 +36,6 @@ exports.controlpage = function(req, res) {
 };
 
 exports.userpage_people = function(req, res) {
-<<<<<<< HEAD
 	res.render('userpage_people', { title: 'user page'});
 };
 
@@ -50,7 +49,4 @@ exports.contact_page = function(req,res){
 	res.render('contact_page', { title: 'contact_page'});
 };
 
-	var cookieTemp = req.headers.cookie;
-	res.render('userpage_people', { username: parseCookie(cookieTemp) });
-};
 
